@@ -1,15 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <Search />
+    <GenreFilmsList />
+    <CastFilmsList />
+    <FilmsTable />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import Search from './components/Search.vue'
+import GenreFilmsList from './components/GenreFilmsList.vue'
+import CastFilmsList from './components/CastFilmsList.vue'
+import FilmsTable from './components/FilmsTable.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Search,
+    GenreFilmsList,
+    CastFilmsList,
+    FilmsTable
   }
 }
 </script>
