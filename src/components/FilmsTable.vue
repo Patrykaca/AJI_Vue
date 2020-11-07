@@ -1,7 +1,17 @@
 
 <template>
     <div>
-        <p>Films table </p>
+        <table>
+          <tr>
+            <th>Tittle</th>
+            <th>Production Cast</th>
+            <th>Year</th>
+            <th>Genre</th>
+          </tr>
+          <tr>
+
+          </tr>
+        </table>
     </div>
 </template>
 

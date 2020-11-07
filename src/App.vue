@@ -16,6 +16,8 @@ import CastFilmsList from './components/CastFilmsList.vue'
 import FilmsTable from './components/FilmsTable.vue'
 import Background from "@/components/Background";
 
+//import json from '../data/movies.json'
+
 export default {
   name: 'App',
   components: {
@@ -24,6 +26,13 @@ export default {
     GenreFilmsList,
     CastFilmsList,
     FilmsTable,
+  },
+  data(){
+    return{
+   //   myJson: json
+
+
+    }
   }
 }
 </script>
