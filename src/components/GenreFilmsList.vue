@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>Genre films list </p>
+        <div  v-for="data in myJson" v-bind:key="data" >{{data.title}}</div>
     </div>
 </template>
 
