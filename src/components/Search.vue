@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h1>Search </h1>
+    <div class="searchWrapper">
+        <h1>Baza filmów</h1>
     </div>
 </template>
 
@@ -10,6 +10,16 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+
+.searchWrapper {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+}
+
 
 </style>
