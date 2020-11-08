@@ -1,6 +1,8 @@
 <template>
+
   <div id="app">
     <Search />
+    <FilmsTable />
     <GenreFilmsList />
     <CastFilmsList />
     <MoviesTable />
@@ -16,16 +18,24 @@ import CastFilmsList from './components/CastFilmsList.vue'
 import MoviesTable from './components/MoviesTable.vue'
 import Background from "@/components/Background";
 
-export default {
-  name: 'App',
-  components: {
-    Background,
-    Search,
-    GenreFilmsList,
-    CastFilmsList,
-    MoviesTable,
-  },
-}
+import json from '../data/movies.json'
+
+      export default{
+        name: 'App',
+        components: {
+          Search,
+          GenreFilmsList,
+          CastFilmsList,
+          FilmsTable
+        },
+          data(){
+              return{
+                  myJson: json
+                 
+      
+              }
+          }
+      }
 </script>
 
 <style lang="scss">
