@@ -1,15 +1,6 @@
 <template>
     <div class="searchWrapper">
-
-      <h1>Baza Filmów</h1>
-      <div>
-        <input type="text" id="inputSearch" placeholder="Type Your search here..."/>
-      </div>
-
-      <div>
-        <input type="button" id="dateBtn" value="Search"/>
-      </div>
-
+        <h1>Baza filmów</h1>
     </div>
 </template>
 
