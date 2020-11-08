@@ -1,7 +1,12 @@
 <template>
-    <div class="searchWrapper">
-        <h1>Baza filmów</h1>
-    </div>
+  <div class="searchWrapper">
+    <h1>Movies database</h1>
+    <input
+        id="search"
+        name="search"
+        type="text"
+    >
+  </div>
 </template>
 
 <script>

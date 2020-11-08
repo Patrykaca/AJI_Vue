@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div  v-for="data in myJson" v-bind:key="data" >{{data.title}}</div>
+      <p>gene </p>
     </div>
 </template>
 
