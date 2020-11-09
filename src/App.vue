@@ -1,10 +1,10 @@
 <template>
-
   <div id="app">
     <Search />
-    <FilmsTable />
     <GenreFilmsList />
     <CastFilmsList />
+    <MoviesTable/>
+    <Background/>
   </div>
 </template>
 
@@ -13,23 +13,26 @@
 import Search from './components/Search.vue'
 import GenreFilmsList from './components/GenreFilmsList.vue'
 import CastFilmsList from './components/CastFilmsList.vue'
-import FilmsTable from './components/FilmsTable.vue'
 
-import json from '../data/movies.json'
+
+import json from './assets/movies.json'
+import MoviesTable from "@/components/MoviesTable";
+import Background from "@/components/Background";
 
       export default{
         name: 'App',
         components: {
+          Background,
+          MoviesTable,
           Search,
           GenreFilmsList,
           CastFilmsList,
-          FilmsTable
         },
           data(){
               return{
                   myJson: json
-                 
-      
+
+
               }
           }
       }

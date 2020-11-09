@@ -18,6 +18,16 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+
+.searchWrapper {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+}
+
 
 </style>
