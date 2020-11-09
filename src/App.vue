@@ -1,32 +1,29 @@
 <template>
   <div id="app">
     <Search />
-    <GenreFilmsList />
-    <CastFilmsList />
+    <MoviesGenre/>
+    <MoviesCast/>
     <MoviesTable/>
     <Background/>
   </div>
 </template>
 
 <script>
-
-import Search from './components/Search.vue'
-import GenreFilmsList from './components/GenreFilmsList.vue'
-import CastFilmsList from './components/CastFilmsList.vue'
-
-
 import json from './assets/movies.json'
+import Search from './components/Search.vue'
 import MoviesTable from "@/components/MoviesTable";
 import Background from "@/components/Background";
+import MoviesCast from "@/components/MoviesCast";
+import MoviesGenre from "@/components/MoviesGenre";
 
       export default{
         name: 'App',
         components: {
+          MoviesGenre,
+          MoviesCast,
           Background,
           MoviesTable,
           Search,
-          GenreFilmsList,
-          CastFilmsList,
         },
           data(){
               return{

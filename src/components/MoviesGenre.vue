@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: "GenreFilmsList"
+  name: "MoviesGenre"
 }
 </script>
 
