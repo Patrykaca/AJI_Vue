@@ -6,6 +6,14 @@
         name="search"
         type="text"
     >
+
+    <div>
+      <input type="text" id="inputSearch" placeholder="Type Your search here..."/>
+    </div>
+
+    <div>
+      <input type="button" id="dateBtn" value="Search"/>
+    </div>
   </div>
 </template>
 
