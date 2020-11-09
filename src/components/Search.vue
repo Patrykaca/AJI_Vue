@@ -1,15 +1,12 @@
 <template>
-    <div>
-
-      <div>
-        <input type="text" id="inputSearch" placeholder="Type Your search here..."/>
-      </div>
-
-      <div>
-        <input type="button" id="dateBtn" value="Search"/>
-      </div>
-
-    </div>
+  <div class="searchWrapper">
+    <h1>Movies database</h1>
+    <input
+        id="search"
+        name="search"
+        type="text"
+    >
+  </div>
 </template>
 
 <script>
