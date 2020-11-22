@@ -20,14 +20,14 @@
     </table>
 
     <div>
-      <button class="btn btn-block" v-on:click="expand">Next</button>
+      <button class="btn btn-block" v-on:click="expand()">Next</button>
     </div>
 
   </div>
 </template>
 
 <script>
-const TABLE_SIZE = 100;
+const TABLE_SIZE = 10;
 let tableSize;
 
 export default {
@@ -41,12 +41,6 @@ export default {
   data() {
     tableSize = TABLE_SIZE;
 
-    if (this.jsonDatabase.length < TABLE_SIZE) {
-      tableSize = this.jsonDatabase.length;
-    } else {
-      tableSize = TABLE_SIZE;
-    }
-
     return {
       tableSize,
     }
@@ -54,11 +48,7 @@ export default {
 
   methods: {
     expand() {
-      if (this.jsonDatabase.length + TABLE_SIZE <= this.tableSize) {
-        this.tableSize = this.jsonDatabase.length;
-      } else {
-        this.tableSize += TABLE_SIZE;
-      }
+      this.tableSize += TABLE_SIZE;
     }
   },
 }
