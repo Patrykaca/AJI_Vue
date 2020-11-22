@@ -10,25 +10,59 @@
       </tr>
       </thead>
       <tbody>
-        <tr class="tableJson" v-for="(index, val) in jsonDatabase" :key="val">
+        <tr class="tableJson" v-for="(index, val) in tableSize" :key="val">
             <th>{{jsonDatabase[val].title}}</th>
             <th>{{jsonDatabase[val].year}}</th>
-            <th>{{jsonDatabase[val].cast.toString()}}</th>
-            <th>{{jsonDatabase[val].genres.toString()}}</th>
+            <th>{{jsonDatabase[val].cast.toString().split(",").join(", ")}}</th>
+            <th>{{jsonDatabase[val].genres.toString().split(",").join(", ")}}</th>
         </tr>
       </tbody>
     </table>
-    <div> {{ jsonDatabase[0] }}
+
+    <div v-if="expandBtn">
+      <button class="btn btn-block" v-on:click="expand">Next</button>
     </div>
+
   </div>
 </template>
 
 <script>
+const TABLE_SIZE = 100;
+let tableSize;
+let expandBtn;
 
 export default {
+
   name: "MoviesTable",
+
   props: {
     jsonDatabase: Array,
+  },
+
+  data() {
+    tableSize = TABLE_SIZE;
+    expandBtn = true;
+
+    if (this.jsonDatabase.length < TABLE_SIZE) {
+      tableSize = this.jsonDatabase.length;
+    } else {
+      tableSize = TABLE_SIZE;
+    }
+
+    return {
+      tableSize,
+      expandBtn
+    }
+  },
+
+  methods: {
+    expand() {
+      if (this.jsonDatabase.length + TABLE_SIZE <= this.tableSize) {
+        this.tableSize = this.jsonDatabase.length;
+      } else {
+        this.tableSize += TABLE_SIZE;
+      }
+    }
   },
 }
 </script>
@@ -36,6 +70,9 @@ export default {
 <style lang="scss" scoped>
 
 .tableWrapper {
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -44,6 +81,8 @@ export default {
 }
 
 .mainTh {
+  margin-left: 10px;
+  margin-right: 10px;
   font-size: 40px;
   padding: 0 20px 0 20px;
   letter-spacing: 2px;
@@ -53,7 +92,7 @@ export default {
 }
 
 .tableJson {
-  font-size: 7px;
+  font-size: 11px;
 }
 
 </style>
