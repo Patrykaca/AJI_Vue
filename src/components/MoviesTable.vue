@@ -3,22 +3,22 @@
     <table class="table">
       <thead>
       <tr>
-        <th>Title</th>
-        <th>Year</th>
-        <th>Cast</th>
-        <th>Genres</th>
+        <th class="mainTh">Title</th>
+        <th class="mainTh">Year</th>
+        <th class="mainTh">Cast</th>
+        <th class="mainTh">Genres</th>
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+        <tr class="tableJson" v-for="(index, val) in jsonDatabase" :key="val">
+            <th>{{jsonDatabase[val].title}}</th>
+            <th>{{jsonDatabase[val].year}}</th>
+            <th>{{jsonDatabase[val].cast.toString()}}</th>
+            <th>{{jsonDatabase[val].genres.toString()}}</th>
+        </tr>
       </tbody>
     </table>
-    <div> {{jsonDatabase[0]}}
+    <div> {{ jsonDatabase[0] }}
     </div>
   </div>
 </template>
@@ -43,13 +43,17 @@ export default {
   justify-content: center;
 }
 
-th {
+.mainTh {
   font-size: 40px;
   padding: 0 20px 0 20px;
   letter-spacing: 2px;
   font-weight: 400;
   color: #4a4a4a;
   text-shadow: 0 0 5px rgba(94, 171, 94, 0.4);
+}
+
+.tableJson {
+  font-size: 7px;
 }
 
 </style>

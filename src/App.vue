@@ -33,11 +33,6 @@ export default {
       moviesData: json,
     };
   },
-  methods: {
-    sendJson() {
-      return this.moviesData;
-    },
-  },
 }
 </script>
 
