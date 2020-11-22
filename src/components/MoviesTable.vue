@@ -19,7 +19,7 @@
       </tbody>
     </table>
 
-    <div v-if="expandBtn">
+    <div>
       <button class="btn btn-block" v-on:click="expand">Next</button>
     </div>
 
@@ -29,7 +29,6 @@
 <script>
 const TABLE_SIZE = 100;
 let tableSize;
-let expandBtn;
 
 export default {
 
@@ -41,7 +40,6 @@ export default {
 
   data() {
     tableSize = TABLE_SIZE;
-    expandBtn = true;
 
     if (this.jsonDatabase.length < TABLE_SIZE) {
       tableSize = this.jsonDatabase.length;
@@ -51,7 +49,6 @@ export default {
 
     return {
       tableSize,
-      expandBtn
     }
   },
 
