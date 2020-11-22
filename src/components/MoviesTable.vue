@@ -27,7 +27,7 @@
 </template>
 
 <script>
-const TABLE_SIZE = 10;
+const TABLE_SIZE = 100;
 let tableSize;
 
 export default {
@@ -40,6 +40,13 @@ export default {
 
   data() {
     tableSize = TABLE_SIZE;
+    console.log(this.jsonDatabase.length);
+
+    if (this.jsonDatabase.length < tableSize) {
+      tableSize = this.jsonDatabase.length;
+    } else {
+      tableSize = TABLE_SIZE;
+    }
 
     return {
       tableSize,
@@ -48,7 +55,11 @@ export default {
 
   methods: {
     expand() {
-      this.tableSize += TABLE_SIZE;
+      if (this.jsonDatabase.length < tableSize) {
+        tableSize = this.jsonDatabase.length;
+      } else {
+        this.tableSize += TABLE_SIZE;
+      }
     }
   },
 }
