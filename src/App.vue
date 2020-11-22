@@ -4,15 +4,16 @@
     -->
     <Search />
     <p></p>
-    <MoviesGenre/>
-    <MoviesCast/>
     <MoviesTable :jsonDatabase="moviesData"/>
+    <MoviesGenre :jsonData="genresData" :jsonMovies="moviesData"/>
+    <MoviesCast :jsonData="moviesData"/>
     <Background/>
   </div>
 </template>
 
 <script>
 import json from './assets/movies.json'
+import genreJson from './assets/genres.json'
 import Search from './components/Search.vue'
 import MoviesTable from "@/components/MoviesTable";
 import Background from "@/components/Background";
@@ -31,6 +32,7 @@ export default {
   data() {
     return {
       moviesData: json,
+      genresData: genreJson
     };
   },
 }
@@ -41,7 +43,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }

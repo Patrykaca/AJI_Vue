@@ -9,7 +9,7 @@
         <th class="mainTh">Genres</th>
       </tr>
       </thead>
-      <tbody>
+      <tbody class="bodyClass">
         <tr class="tableJson" v-for="(index, val) in tableSize" :key="val">
             <th>{{jsonDatabase[val].title}}</th>
             <th>{{jsonDatabase[val].year}}</th>
@@ -20,14 +20,14 @@
     </table>
 
     <div>
-      <button class="btn btn-block" v-on:click="expand()">Next</button>
+      <button class="btn btn-block" v-on:click="expand()">Show more</button>
     </div>
 
   </div>
 </template>
 
 <script>
-const TABLE_SIZE = 100;
+const TABLE_SIZE = 10;
 let tableSize;
 
 export default {
@@ -68,29 +68,39 @@ export default {
 <style lang="scss" scoped>
 
 .tableWrapper {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 120px;
+  margin-right: 120px;
   padding: 10px;
   display: flex;
   flex-direction: column;
   align-content: center;
   align-items: center;
   justify-content: center;
+  text-align: left;
+  background-color: white;
+  opacity: 0.8;
+  
 }
 
 .mainTh {
   margin-left: 10px;
   margin-right: 10px;
-  font-size: 40px;
+  font-size: 50px;
   padding: 0 20px 0 20px;
   letter-spacing: 2px;
   font-weight: 400;
-  color: #4a4a4a;
+  color: black;
   text-shadow: 0 0 5px rgba(94, 171, 94, 0.4);
 }
 
 .tableJson {
-  font-size: 11px;
+  font-size: 22px;
+  align-content: left;
+  align-items: left;
 }
 
+.btn{
+  font-size: 30px;
+  margin-top: 20px;
+}
 </style>

@@ -4,7 +4,10 @@
 
 <script>
 export default {
-  name: "MoviesCast"
+  name: "MoviesCast",
+  props:{
+    jsonData: Array
+  }
 }
 </script>
 

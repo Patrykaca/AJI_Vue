@@ -23,3 +23,5 @@ pnpm-debug.log*
 *.sw?
 
 src/assets/movies.json
+src/assets/genres.json
+
