@@ -1,10 +1,8 @@
 <template>
   <div id="app">
-    <!-- <div>{{moviesData[0]}}</div>
+    <Search :jsonDatabase="moviesData"/>
+    <!--  <MoviesTable :jsonDatabase="moviesData"/>
     -->
-    <Search />
-    <p></p>
-    <MoviesTable :jsonDatabase="moviesData"/>
     <MoviesGenre :jsonData="genresData" :jsonMovies="moviesData"/>
     <MoviesCast :jsonData="moviesData"/>
     <Background/>
@@ -15,7 +13,7 @@
 import json from './assets/movies.json'
 import genreJson from './assets/genres.json'
 import Search from './components/Search.vue'
-import MoviesTable from "@/components/MoviesTable";
+//import MoviesTable from "@/components/MoviesTable";
 import Background from "@/components/Background";
 import MoviesCast from "@/components/MoviesCast";
 import MoviesGenre from "@/components/MoviesGenre";
@@ -26,7 +24,7 @@ export default {
     MoviesGenre,
     MoviesCast,
     Background,
-    MoviesTable,
+   // MoviesTable,
     Search,
   },
   data() {

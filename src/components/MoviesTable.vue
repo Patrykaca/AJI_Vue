@@ -79,7 +79,7 @@ export default {
   text-align: left;
   background-color: white;
   opacity: 0.8;
-  
+
 }
 
 .mainTh {
@@ -95,8 +95,10 @@ export default {
 
 .tableJson {
   font-size: 22px;
+  /*
   align-content: left;
   align-items: left;
+   */
 }
 
 .btn{
