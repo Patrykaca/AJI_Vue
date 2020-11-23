@@ -59,9 +59,10 @@ export default {
     },
 
     checkInputs: function (item) {
-      if (this.isIncluded(item.title, this.searchVal.title)) {
+      if (!this.isIncluded(item.title, this.searchVal.title)) {
         return true;
       }
+      console.log("checkInput false");
       return false;
     },
 
@@ -85,10 +86,8 @@ export default {
            }
          }
          console.log(this.jsonFiltered);
-        alert("chuj");
       } else {
         this.jsonFiltered = lodash.cloneDeep(this.jsonDatabase);
-        alert("chuj2");
       }
     this.renderkey = this.renderkey + 1;
     }
