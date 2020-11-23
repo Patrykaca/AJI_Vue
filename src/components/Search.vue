@@ -6,12 +6,14 @@
         name="search"
         type="text"
         placeholder="Title"
+        v-model="searchVal.title"
     />
-    <button v-on:click="searchDB()" class="btn">
+    <button v-on:click="searchDB" class="btn">
       Search
     </button>
 
-    <MoviesTable :jsonDatabase="jsonFiltered"/>
+    <MoviesTable :jsonDatabase="jsonFiltered"
+                 :key="renderkey"/>
   </div>
 
 
@@ -32,6 +34,7 @@ export default {
 
   data() {
     return {
+      renderkey: 0,
       jsonFiltered: lodash.cloneDeep(this.jsonDatabase),
       searchVal: {
         title: "",
@@ -42,19 +45,52 @@ export default {
   methods: {
 
     isFilled: function (val) {
-      return val !== "";
+      console.log(this.searchVal.title);
+      return val === "";
     },
 
-    isInputFilled: function () {
-      if (!this.isFilled(this.searchVal.title)) {
+    getLowerCaseVal: function (val) {
+      return lodash.toLower(val);
+    },
+
+    isIncluded: function (array, input) {
+      return (lodash.includes(this.getLowerCaseVal(array),
+        this.getLowerCaseVal(input)) || !this.isFilled(input))
+    },
+
+    checkInputs: function (item) {
+      if (this.isIncluded(item.title, this.searchVal.title)) {
         return true;
       }
       return false;
     },
 
-    searchDB: function () {
-      // for (let movie in this.jsonDatabase) {
+    isInputFilled: function () {
+      if (!(this.isFilled(this.searchVal.title))) {
+        alert("t");
+        return true;
+      }
+      alert("f");
+      return false;
+    },
 
+    searchDB: function () {
+      this.jsonFiltered = [];
+
+      if (this.isInputFilled()) {
+         for (let movie in this.jsonDatabase) {
+           if (this.checkInputs(this.jsonDatabase[movie])) {
+             this.jsonFiltered.push(this.jsonDatabase[movie]);
+
+           }
+         }
+         console.log(this.jsonFiltered);
+        alert("chuj");
+      } else {
+        this.jsonFiltered = lodash.cloneDeep(this.jsonDatabase);
+        alert("chuj2");
+      }
+    this.renderkey = this.renderkey + 1;
     }
   },
 }
