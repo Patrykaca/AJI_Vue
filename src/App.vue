@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <Search :jsonDatabase="moviesData"/>
+    <Search :jsonDatabase="moviesData"
+    :lodash="lodash"/>
     <!--  <MoviesTable :jsonDatabase="moviesData"/>
     -->
     <MoviesGenre :jsonData="genresData" :jsonMovies="moviesData"/>
@@ -10,6 +11,7 @@
 </template>
 
 <script>
+import lodash from "lodash";
 import json from './assets/movies.json'
 import genreJson from './assets/genres.json'
 import Search from './components/Search.vue'
@@ -30,7 +32,8 @@ export default {
   data() {
     return {
       moviesData: json,
-      genresData: genreJson
+      genresData: genreJson,
+      lodash: lodash,
     };
   },
 }

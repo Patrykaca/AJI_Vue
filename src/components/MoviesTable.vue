@@ -20,7 +20,7 @@
     </table>
 
     <div>
-      <button class="btn btn-block" v-on:click="expand()">Show more</button>
+      <button class="btnClass" v-on:click="expand()">Show more</button>
     </div>
 
   </div>
@@ -101,8 +101,23 @@ export default {
    */
 }
 
-.btn{
-  font-size: 30px;
-  margin-top: 20px;
+.btnClass {
+  width: 360px;
+  height: 40px;
+  align-content: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  border-style: groove;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  transition: box-shadow 0.1s ease-in-out;
+}
+
+.btnClass:hover {
+  -webkit-box-shadow: inset 0px 0px 8px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0px 0px 8px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0px 0px 8px 5px rgba(0, 0, 0, 0.1);
 }
 </style>

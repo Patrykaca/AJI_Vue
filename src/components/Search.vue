@@ -57,7 +57,6 @@
 </template>
 
 <script>
-import lodash from "lodash";
 import MoviesTable from "@/components/MoviesTable";
 
 export default {
@@ -67,12 +66,13 @@ export default {
   },
   props: {
     jsonDatabase: Array,
+    lodash: Object,
   },
 
   data() {
     return {
       renderkey: 0,
-      jsonFiltered: lodash.cloneDeep(this.jsonDatabase),
+      jsonFiltered: this.lodash.cloneDeep(this.jsonDatabase),
       searchVal: {
         title: "",
         cast: "",
@@ -92,11 +92,11 @@ export default {
     getLowerCaseVal: function (val) {
       // console.log(lodash.toLower(val));
       // alert(lodash.toLower(val));
-      return lodash.toLower(val);
+      return this.lodash.toLower(val);
     },
 
     isIncluded: function (array, input) {
-      return (lodash.includes(this.getLowerCaseVal(array),
+      return (this.lodash.includes(this.getLowerCaseVal(array),
           this.getLowerCaseVal(input)))
     },
 
@@ -149,7 +149,7 @@ export default {
           }
         }
       } else {
-        this.jsonFiltered = lodash.cloneDeep(this.jsonDatabase);
+        this.jsonFiltered = this.lodash.cloneDeep(this.jsonDatabase);
       }
       this.renderkey = this.renderkey + 1;
     }
