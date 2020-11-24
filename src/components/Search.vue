@@ -50,7 +50,7 @@
     </button>
 
     <MoviesTable :jsonDatabase="jsonFiltered"
-                 :key="renderkey"/>
+                 :key="renderKey"/>
   </div>
 
 
@@ -71,7 +71,7 @@ export default {
 
   data() {
     return {
-      renderkey: 0,
+      renderKey: 0,
       jsonFiltered: this.lodash.cloneDeep(this.jsonDatabase),
       searchVal: {
         title: "",
@@ -90,8 +90,6 @@ export default {
     },
 
     getLowerCaseVal: function (val) {
-      // console.log(lodash.toLower(val));
-      // alert(lodash.toLower(val));
       return this.lodash.toLower(val);
     },
 
@@ -101,17 +99,13 @@ export default {
     },
 
     checkDateFrom: function (arrayDate, dateFrom) {
-      if (this.isFilled(dateFrom) || dateFrom <= arrayDate) {
-        return true;
-      }
-      return false;
+      return this.isFilled(dateFrom) || dateFrom <= arrayDate;
+
     },
 
     checkDateTo: function (arrayDate, dateTo) {
-      if (this.isFilled(dateTo) || dateTo >= arrayDate) {
-        return true;
-      }
-      return false;
+      return this.isFilled(dateTo) || dateTo >= arrayDate;
+
     },
 
     checkInputs: function (item) {
@@ -151,7 +145,7 @@ export default {
       } else {
         this.jsonFiltered = this.lodash.cloneDeep(this.jsonDatabase);
       }
-      this.renderkey = this.renderkey + 1;
+      this.renderKey = this.renderKey + 1;
     }
   },
 }

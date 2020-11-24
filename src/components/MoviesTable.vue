@@ -11,10 +11,10 @@
       </thead>
       <tbody class="bodyClass"> <!-- v-for="val" nie wyswietla 1 filmu -->
         <tr class="tableJson" v-for="(index, val) in tableSize" :key="val">
-            <th>{{jsonDatabase[val].title}}</th>
-            <th>{{jsonDatabase[val].year}}</th>
-            <th>{{jsonDatabase[val].cast.toString().split(",").join(", ")}}</th>
-            <th>{{jsonDatabase[val].genres.toString().split(",").join(", ")}}</th>
+            <th class="secondTh">{{jsonDatabase[val].title}}</th>
+            <th class="secondTh">{{jsonDatabase[val].year}}</th>
+            <th class="secondTh">{{jsonDatabase[val].cast.toString().split(",").join(", ")}}</th>
+            <th class="secondTh">{{jsonDatabase[val].genres.toString().split(",").join(", ")}}</th>
         </tr>
       </tbody>
     </table>
@@ -40,7 +40,6 @@ export default {
 
   data() {
     tableSize = TABLE_SIZE;
-    console.log(this.jsonDatabase.length);
 
     if (this.jsonDatabase.length < TABLE_SIZE) {
       tableSize = this.jsonDatabase.length;
@@ -65,40 +64,62 @@ export default {
 }
 </script>
 
+
 <style lang="scss" scoped>
 
 .tableWrapper {
-  margin-left: 120px;
-  margin-right: 120px;
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
   padding: 10px;
   display: flex;
   flex-direction: column;
   align-content: center;
   align-items: center;
   justify-content: center;
-  text-align: left;
+  text-align: justify;
   background-color: white;
   opacity: 0.8;
+
+  @media (min-width: 768px) {
+    width: 70%;
+
+  }
+
 
 }
 
 .mainTh {
-  margin-left: 10px;
-  margin-right: 10px;
-  font-size: 50px;
-  padding: 0 20px 0 20px;
+  width: 10%;
+  font-size: 21px;
   letter-spacing: 2px;
   font-weight: 400;
   color: black;
+  text-align: center;
   text-shadow: 0 0 5px rgba(94, 171, 94, 0.4);
+
+  @media (min-width: 768px) {
+    font-size: 40px;
+  }
+
 }
 
-.tableJson {
-  font-size: 22px;
-  /*
-  align-content: left;
-  align-items: left;
-   */
+.mainTh:first-child {
+  width: 40%;
+  text-align: left;
+}
+
+.secondTh {
+  font-size: 17px;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 22px;
+  }
+}
+
+.secondTh:first-child {
+  text-align: left;
 }
 
 .btnClass {
@@ -113,6 +134,7 @@ export default {
   font-weight: 500;
   letter-spacing: 2px;
   transition: box-shadow 0.1s ease-in-out;
+
 }
 
 .btnClass:hover {
