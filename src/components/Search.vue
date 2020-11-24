@@ -2,6 +2,7 @@
   <div class="searchWrapper">
     <h1>Movies database</h1>
     <input
+        class="inputClass"
         id="searchTitle"
         name="search"
         type="text"
@@ -9,6 +10,7 @@
         v-model="searchVal.title"
     />
     <input
+        class="inputClass"
         id="searchCast"
         name="search"
         type="text"
@@ -16,6 +18,7 @@
         v-model="searchVal.cast"
     />
     <input
+        class="inputClass"
         id="searchDateFrom"
         name="search"
         type="text"
@@ -25,6 +28,7 @@
         max="2100"
     />
     <input
+        class="inputClass"
         id="searchDateTo"
         name="search"
         type="text"
@@ -33,7 +37,7 @@
         min="1900"
         max="2100"
     />
-    <button v-on:click="searchDB" class="btn">
+    <button v-on:click="searchDB" class="btnClass">
       Search
     </button>
 
@@ -134,7 +138,33 @@ export default {
   align-items: center;
   justify-content: center;
   font-size: 34px;
+  margin: 10px;
+}
+
+.inputClass {
   margin-bottom: 10px;
+  width: 350px;
+  height: 30px;
+  align-content: center;
+  border-style: ridge;
+  border-radius: 15px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.inputClass:focus {
+  -webkit-box-shadow: 0px 10px 16px -5px rgba(0,0,0,0.59);
+  -moz-box-shadow: 0px 10px 16px -5px rgba(0,0,0,0.59);
+  box-shadow: 0px 10px 16px -5px rgba(0,0,0,0.59);
+}
+
+.btnClass {
+  width: 360px;
+  height: 40px;
+  align-content: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  border-style: groove;
 }
 
 
