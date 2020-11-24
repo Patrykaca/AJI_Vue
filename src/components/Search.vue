@@ -45,21 +45,22 @@ export default {
   methods: {
 
     isFilled: function (val) {
-      console.log(this.searchVal.title);
       return val === "";
     },
 
     getLowerCaseVal: function (val) {
+     // console.log(lodash.toLower(val));
+     // alert(lodash.toLower(val));
       return lodash.toLower(val);
     },
 
     isIncluded: function (array, input) {
       return (lodash.includes(this.getLowerCaseVal(array),
-        this.getLowerCaseVal(input)) || !this.isFilled(input))
+        this.getLowerCaseVal(input)))
     },
 
     checkInputs: function (item) {
-      if (!this.isIncluded(item.title, this.searchVal.title)) {
+      if (this.isIncluded(item.title, this.searchVal.title)) {
         return true;
       }
       console.log("checkInput false");
@@ -85,7 +86,6 @@ export default {
 
            }
          }
-         console.log(this.jsonFiltered);
       } else {
         this.jsonFiltered = lodash.cloneDeep(this.jsonDatabase);
       }
