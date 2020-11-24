@@ -2,11 +2,36 @@
   <div class="searchWrapper">
     <h1>Movies database</h1>
     <input
-        id="search"
+        id="searchTitle"
         name="search"
         type="text"
         placeholder="Title"
         v-model="searchVal.title"
+    />
+    <input
+        id="searchCast"
+        name="search"
+        type="text"
+        placeholder="Cast"
+        v-model="searchVal.cast"
+    />
+    <input
+        id="searchDateFrom"
+        name="search"
+        type="text"
+        placeholder="Date from"
+        v-model="searchVal.dateFrom"
+        min="1900"
+        max="2100"
+    />
+    <input
+        id="searchDateTo"
+        name="search"
+        type="text"
+        placeholder="Date to"
+        v-model="searchVal.dateTo"
+        min="1900"
+        max="2100"
     />
     <button v-on:click="searchDB" class="btn">
       Search
@@ -38,6 +63,9 @@ export default {
       jsonFiltered: lodash.cloneDeep(this.jsonDatabase),
       searchVal: {
         title: "",
+        cast: "",
+        dateFrom: "",
+        dateTo: "",
       },
     }
   },
@@ -49,18 +77,19 @@ export default {
     },
 
     getLowerCaseVal: function (val) {
-     // console.log(lodash.toLower(val));
-     // alert(lodash.toLower(val));
+      // console.log(lodash.toLower(val));
+      // alert(lodash.toLower(val));
       return lodash.toLower(val);
     },
 
     isIncluded: function (array, input) {
       return (lodash.includes(this.getLowerCaseVal(array),
-        this.getLowerCaseVal(input)))
+          this.getLowerCaseVal(input)))
     },
 
     checkInputs: function (item) {
-      if (this.isIncluded(item.title, this.searchVal.title)) {
+      if (this.isIncluded(item.title, this.searchVal.title)
+          && this.isIncluded(item.cast, this.searchVal.cast)) {
         return true;
       }
       console.log("checkInput false");
@@ -68,7 +97,8 @@ export default {
     },
 
     isInputFilled: function () {
-      if (!(this.isFilled(this.searchVal.title))) {
+      if (!(this.isFilled(this.searchVal.title)
+          && this.isFilled(this.searchVal.cast))) {
         alert("t");
         return true;
       }
@@ -80,16 +110,16 @@ export default {
       this.jsonFiltered = [];
 
       if (this.isInputFilled()) {
-         for (let movie in this.jsonDatabase) {
-           if (this.checkInputs(this.jsonDatabase[movie])) {
-             this.jsonFiltered.push(this.jsonDatabase[movie]);
+        for (let movie in this.jsonDatabase) {
+          if (this.checkInputs(this.jsonDatabase[movie])) {
+            this.jsonFiltered.push(this.jsonDatabase[movie]);
 
-           }
-         }
+          }
+        }
       } else {
         this.jsonFiltered = lodash.cloneDeep(this.jsonDatabase);
       }
-    this.renderkey = this.renderkey + 1;
+      this.renderkey = this.renderkey + 1;
     }
   },
 }
