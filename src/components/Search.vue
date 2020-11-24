@@ -103,10 +103,8 @@ export default {
     isInputFilled: function () {
       if (!(this.isFilled(this.searchVal.title)
           && this.isFilled(this.searchVal.cast))) {
-        alert("t");
         return true;
       }
-      alert("f");
       return false;
     },
 

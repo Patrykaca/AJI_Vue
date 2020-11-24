@@ -42,7 +42,7 @@ export default {
     tableSize = TABLE_SIZE;
     console.log(this.jsonDatabase.length);
 
-    if (this.jsonDatabase.length < tableSize) {
+    if (this.jsonDatabase.length < TABLE_SIZE) {
       tableSize = this.jsonDatabase.length;
     } else {
       tableSize = TABLE_SIZE;
@@ -55,8 +55,8 @@ export default {
 
   methods: {
     expand() {
-      if (this.jsonDatabase.length < tableSize) {
-        tableSize = this.jsonDatabase.length;
+      if (this.jsonDatabase.length + TABLE_SIZE <= this.tableSize) {
+        this.tableSize = this.jsonDatabase.length;
       } else {
         this.tableSize += TABLE_SIZE;
       }
