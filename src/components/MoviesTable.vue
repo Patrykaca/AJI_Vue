@@ -41,6 +41,12 @@ export default {
   data() {
     tableSize = TABLE_SIZE;
 
+    if (this.jsonDatabase.length < TABLE_SIZE) {
+      tableSize = this.jsonDatabase.length;
+    } else {
+      tableSize = TABLE_SIZE;
+    }
+
     return {
       tableSize,
     }
