@@ -19,6 +19,14 @@
     />
     <input
         class="inputClass"
+        id="searchGenre"
+        name="search"
+        type="text"
+        placeholder="Genre"
+        v-model="searchVal.genre"
+    />
+    <input
+        class="inputClass"
         id="searchDateFrom"
         name="search"
         type="text"
@@ -68,6 +76,7 @@ export default {
       searchVal: {
         title: "",
         cast: "",
+        genre: "",
         dateFrom: "",
         dateTo: "",
       },
@@ -91,9 +100,27 @@ export default {
           this.getLowerCaseVal(input)))
     },
 
+    checkDateFrom: function (arrayDate, dateFrom) {
+      if (this.isFilled(dateFrom) || dateFrom <= arrayDate) {
+        return true;
+      }
+      return false;
+    },
+
+    checkDateTo: function (arrayDate, dateTo) {
+      if (this.isFilled(dateTo) || dateTo >= arrayDate) {
+        return true;
+      }
+      return false;
+    },
+
     checkInputs: function (item) {
       if (this.isIncluded(item.title, this.searchVal.title)
-          && this.isIncluded(item.cast, this.searchVal.cast)) {
+          && this.isIncluded(item.cast, this.searchVal.cast)
+          && this.isIncluded(item.genres, this.searchVal.genre)
+          && this.checkDateFrom(item.year, this.searchVal.dateFrom)
+          && this.checkDateTo(item.year, this.searchVal.dateTo)
+      ) {
         return true;
       }
       console.log("checkInput false");
@@ -102,7 +129,10 @@ export default {
 
     isInputFilled: function () {
       if (!(this.isFilled(this.searchVal.title)
-          && this.isFilled(this.searchVal.cast))) {
+          && this.isFilled(this.searchVal.cast)
+          && this.isFilled(this.searchVal.genre)
+          && this.isFilled(this.searchVal.dateFrom)
+          && this.isFilled(this.searchVal.dateTo))) {
         return true;
       }
       return false;
@@ -150,9 +180,9 @@ export default {
 }
 
 .inputClass:focus {
-  -webkit-box-shadow: 0px 10px 16px -5px rgba(0,0,0,0.59);
-  -moz-box-shadow: 0px 10px 16px -5px rgba(0,0,0,0.59);
-  box-shadow: 0px 10px 16px -5px rgba(0,0,0,0.59);
+  -webkit-box-shadow: 0px 10px 16px -5px rgba(0, 0, 0, 0.59);
+  -moz-box-shadow: 0px 10px 16px -5px rgba(0, 0, 0, 0.59);
+  box-shadow: 0px 10px 16px -5px rgba(0, 0, 0, 0.59);
 }
 
 .btnClass {
@@ -170,9 +200,9 @@ export default {
 }
 
 .btnClass:hover {
-  -webkit-box-shadow: inset 0px 0px 8px 5px rgba(0,0,0,0.1);
-  -moz-box-shadow: inset 0px 0px 8px 5px rgba(0,0,0,0.1);
-  box-shadow: inset 0px 0px 8px 5px rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 0px 0px 8px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0px 0px 8px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0px 0px 8px 5px rgba(0, 0, 0, 0.1);
 }
 
 

@@ -9,7 +9,7 @@
         <th class="mainTh">Genres</th>
       </tr>
       </thead>
-      <tbody class="bodyClass">
+      <tbody class="bodyClass"> <!-- v-for="val" nie wyswietla 1 filmu -->
         <tr class="tableJson" v-for="(index, val) in tableSize" :key="val">
             <th>{{jsonDatabase[val].title}}</th>
             <th>{{jsonDatabase[val].year}}</th>
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-const TABLE_SIZE = 10;
+const TABLE_SIZE = 100;
 let tableSize;
 
 export default {
