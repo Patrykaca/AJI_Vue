@@ -177,6 +177,7 @@ export default {
   -webkit-box-shadow: 0px 10px 16px -5px rgba(0, 0, 0, 0.59);
   -moz-box-shadow: 0px 10px 16px -5px rgba(0, 0, 0, 0.59);
   box-shadow: 0px 10px 16px -5px rgba(0, 0, 0, 0.59);
+  border: none;
 }
 
 .btnClass {
@@ -190,7 +191,7 @@ export default {
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 2px;
-  transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out;
 }
 
 .btnClass:hover {
