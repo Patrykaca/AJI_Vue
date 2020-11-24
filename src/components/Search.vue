@@ -165,6 +165,16 @@ export default {
   margin-bottom: 15px;
   border-radius: 15px;
   border-style: groove;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  transition: box-shadow 0.1s ease-in-out;
+}
+
+.btnClass:hover {
+  -webkit-box-shadow: inset 0px 0px 8px 5px rgba(0,0,0,0.1);
+  -moz-box-shadow: inset 0px 0px 8px 5px rgba(0,0,0,0.1);
+  box-shadow: inset 0px 0px 8px 5px rgba(0,0,0,0.1);
 }
 
 
