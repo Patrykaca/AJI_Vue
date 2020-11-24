@@ -4,7 +4,13 @@
     <!-- v-for="(index, val) in tableSize" :key="val" -->
     <dl v-for="(index, val) in jsonData" :key="val" >
       <dt @click="changeState(val)">{{jsonData[val]}}</dt>
-      <dd v-show="genreState[val]"> Here is some text</dd>
+      <!--<dd v-show="genreState[val]"
+      v-for="i in getGroup(val)" :key="i">{{i.title}}</dd>-->
+      <div v-if="genreState[val]">
+          <dd v-for="i in getGroup(val)" :key="i">{{i.title}}</dd>
+          <!--<dd>Some text</dd>-->
+      </div>
+      
     </dl>
 
     </div>
@@ -12,8 +18,9 @@
 </template>
 
 <script>
-//import _ from 'lodash';
+import _ from 'lodash';
 let genreState = []
+let gen 
 
 
 export default {
@@ -27,9 +34,6 @@ export default {
     for(let i=0; i<this.jsonData.length; i++){
       genreState.push(false)
     }
-    genreState[0]=true
-
-    genreState[3]=true
     return {genreState}
     
   },
@@ -42,6 +46,13 @@ export default {
       this.$forceUpdate();
       //vm.$forceUpdate();
     },
+    getGroup: function(index){
+      gen = this.jsonData[index]
+      console.log(gen)
+      let some = _.filter(this.jsonMovies, function(o){return o.genres==gen})
+      console.log(some)
+      return some
+    }
 
   }
   
