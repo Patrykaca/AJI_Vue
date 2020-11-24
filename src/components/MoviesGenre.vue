@@ -1,14 +1,12 @@
 <template>
 
-    <div class="MoviesGenreList">
-    <!-- v-for="(index, val) in tableSize" :key="val" -->
-    <dl v-for="(index, val) in jsonData" :key="val" >
+    <div>
+    <h1 class="header" >Films by genre</h1>
+
+    <dl class="list-item" v-for="(index, val) in jsonData" :key="val" >
       <dt @click="changeState(val)">{{jsonData[val]}}</dt>
-      <!--<dd v-show="genreState[val]"
-      v-for="i in getGroup(val)" :key="i">{{i.title}}</dd>-->
       <div v-if="genreState[val]">
-          <dd v-for="i in getGroup(val)" :key="i">{{i.title}}</dd>
-          <!--<dd>Some text</dd>-->
+          <dd  class="list-item-body" v-for="i in getGroup(val)" :key="i">{{i.title}}</dd>
       </div>
       
     </dl>
@@ -61,5 +59,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.list-item{
+    background-color: #fffefe;
+    border-top-left-radius: 20px ;
+    border-top-right-radius: 20px;
+    padding:10px;
+    margin-left: 120px;
+    margin-right: 120px;
+    opacity: 0.8;
+
+}
+ 
+.list-item-body{
+    background-color: #dfdfdfcc;
+    border-radius: 10px;
+    padding:10px;
+    margin-block: 15px;
+    display: block;
+
+}
+.header{
+    margin-left: 120px;
+}
 
 </style>
