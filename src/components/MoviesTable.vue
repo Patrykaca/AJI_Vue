@@ -27,7 +27,7 @@
 </template>
 
 <script>
-const TABLE_SIZE = 100;
+const TABLE_SIZE = 10;
 let tableSize;
 
 export default {
@@ -40,12 +40,6 @@ export default {
 
   data() {
     tableSize = TABLE_SIZE;
-
-    if (this.jsonDatabase.length < TABLE_SIZE) {
-      tableSize = this.jsonDatabase.length;
-    } else {
-      tableSize = TABLE_SIZE;
-    }
 
     return {
       tableSize,
@@ -120,6 +114,10 @@ export default {
 
 .secondTh:first-child {
   text-align: left;
+}
+
+.tableJson:nth-child(2n-1) {
+  background-color: #edebeb;
 }
 
 .btnClass {
