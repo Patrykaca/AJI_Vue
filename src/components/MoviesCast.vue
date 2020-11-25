@@ -27,7 +27,7 @@ let casts = []
 let castState = []
 
 let listSize
-const LIST_SIZE = 10;
+const LIST_SIZE = 100;
 
 let cas
 
