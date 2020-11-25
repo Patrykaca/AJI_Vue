@@ -70,6 +70,12 @@ export default {
     opacity: 0.8;
 
 }
+.list-item:hover {
+  -webkit-box-shadow: inset 0px 0px 8px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0px 0px 8px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0px 0px 8px 5px rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 128, 0, 0.521);
+}
  
 .list-item-body{
     background-color: #dfdfdfcc;
