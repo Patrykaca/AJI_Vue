@@ -5,7 +5,7 @@
     <Search />
     <p></p>
     <MoviesTable :jsonDatabase="moviesData"/>
-   <!-- <MoviesGenre :jsonData="genresData" :jsonMovies="moviesData"/> -->
+    <MoviesGenre :jsonData="genresData" :jsonMovies="moviesData"/>
     <MoviesCast :jsonData="moviesData"/>
     <Background/>
   </div>
@@ -18,12 +18,12 @@ import Search from './components/Search.vue'
 import MoviesTable from "@/components/MoviesTable";
 import Background from "@/components/Background";
 import MoviesCast from "@/components/MoviesCast";
-//import MoviesGenre from "@/components/MoviesGenre";
+import MoviesGenre from "@/components/MoviesGenre";
 
 export default {
   name: 'App',
   components: {
-    //MoviesGenre,
+    MoviesGenre,
     MoviesCast,
     Background,
     MoviesTable,

@@ -11,9 +11,11 @@
       </div>
       
     </dl>
-
-    
-
+<!--
+    <div>
+      <button class="btn btn-block" v-on:click="expand()">Show more</button>
+    </div>
+-->
   </div>
 </template>
 
@@ -23,7 +25,10 @@ import _ from 'lodash';
 let castSet = new Set()
 let casts = []
 let castState = []
+
 let listSize
+const LIST_SIZE = 10;
+
 let cas
 
 export default {
@@ -32,11 +37,12 @@ export default {
     jsonData: Array
   },
   data(){
+    listSize = LIST_SIZE
+
     for(let i in this.jsonData){
       castSet.add(this.jsonData[i].cast)
     }
     let castsArray = _.filter(Array.from(castSet),function(o){return Array.isArray(o) && o.length!=0})
-    //casts = castsArray.join(", ")
 
     for(let i=0; i< castsArray.length; i++){
       if(Array.isArray(castsArray[i])){
@@ -51,8 +57,13 @@ export default {
     for(let i=0; i<casts.length; i++){
       castState.push(false)
     }
-    listSize = 10
-//    console.log(casts)
+
+    if(casts.length < listSize){
+      listSize = casts.length
+    }else{
+      listSize = LIST_SIZE
+    }
+
     return {casts,castState,listSize}
   },
   methods:{
@@ -69,10 +80,18 @@ export default {
           console.log('Cast exists')
         }
       }
-      //let some = _.filter(this.jsonMovies, function(o){return o.genres==gen})
       let some = _.filter(this.jsonData, function(o){return o.cast.includes(cas)})
       console.log(some)
       return some
+    },
+    expand(){
+      if(casts.length < listSize){
+        listSize = casts.length
+      }else{
+        listSize += LIST_SIZE
+      }
+      console.log("Show more clicked")
+      this.$forceUpdate()
     }
 
   }
@@ -89,7 +108,13 @@ export default {
     margin-left: 120px;
     margin-right: 120px;
     opacity: 0.8;
+}
 
+.list-item:hover {
+  -webkit-box-shadow: inset 0px 0px 8px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0px 0px 8px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0px 0px 8px 5px rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 128, 0, 0.521);
 }
  
 .list-item-body{
@@ -102,5 +127,10 @@ export default {
 }
 .header{
     margin-left: 120px;
+}
+
+.btn{
+  font-size: 30px;
+  margin-top: 20px;
 }
 </style>
