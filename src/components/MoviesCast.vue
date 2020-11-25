@@ -44,15 +44,16 @@ export default {
     }
     let castsArray = _.filter(Array.from(castSet),function(o){return Array.isArray(o) && o.length!=0})
 
-    for(let i=0; i< castsArray.length; i++){
-      if(Array.isArray(castsArray[i])){
-        for(let j=0; j< castsArray[i].length; j++){
-          casts.push(castsArray[i][j])
-      }
-      }
-      else 
-        casts.push(castsArray[i])
-    }
+    // for(let i=0; i< castsArray.length; i++){
+    //   if(Array.isArray(castsArray[i])){
+    //     for(let j=0; j< castsArray[i].length; j++){
+    //       casts.push(castsArray[i][j])
+    //   }
+    //   }
+    //   else 
+    //     casts.push(castsArray[i])
+    // }
+    casts =_.flatten(castsArray)
 
     for(let i=0; i<casts.length; i++){
       castState.push(false)
@@ -81,7 +82,9 @@ export default {
         }
       }
       let some = _.filter(this.jsonData, function(o){return o.cast.includes(cas)})
-      console.log(some)
+      some = _.slice(some,0, 100)
+      console.log(some.length)
+
       return some
     },
     expand(){

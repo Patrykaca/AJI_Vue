@@ -48,7 +48,8 @@ export default {
       gen = this.jsonData[index]
       console.log(gen)
       let some = _.filter(this.jsonMovies, function(o){return o.genres==gen})
-      console.log(some)
+      some = _.slice(some, 0, 100)
+      console.log(some.length)
       return some
     }
 
